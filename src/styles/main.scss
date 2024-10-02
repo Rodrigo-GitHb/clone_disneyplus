@@ -5,6 +5,7 @@
 @use '_devices';
 @use 'faq';
 @use 'footer';
+@use 'header';
 
 @font-face{
     font-family: Avenir;
@@ -24,6 +25,7 @@
     padding: 0;
     box-sizing: 0;
     font-family: Avenir, sans-serif;
+    list-style: none;
 }
 
 body{
@@ -73,19 +75,44 @@ body{
 }
 
 .button {
-    
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 60px;
         font-size: 18px;
         color: var.$corTextoSecundario;
-        background-color: #6421ff;
+        background-color: var.$corDeFundoBotaoPrimario;
         text-transform: uppercase;
         border-radius: 4px;
-        margin-top: 2vw;
-        margin-bottom: 8px;
         cursor: pointer;
-    
+        text-decoration: none;
+        padding: 8px 14px;
+        letter-spacing: 1px;
+        border: 1px solid var.$corDeFundoBotaoPrimario;
+        &:hover{
+            background-color: darken( var.$corDeFundoBotaoPrimario, 3%);
+        }
+
+        &--secondary{
+            background-color: var.$corDeFundoBotaoSecundario;
+            border-color: var.$corDeFundoBotaoSecundario;
+
+            &:hover{
+                background-color: lighten( var.$corDeFundoBotaoSecundario, 3%);
+            }
+        }   
+
+        &--dark{
+            background-color: rgba(var.$corDeFundoBotaoDark, 0.8);
+            border-color: var.$corTextoSecundario;
+
+            &:hover{
+                background-color: rgba(var.$corDeFundoBotaoDark, 0.8);
+                color: darken(var.$corTextoSecundario, 15%);
+                
+            }
+        }
 }
 
 .image-text-section{
@@ -93,6 +120,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
 
     img{
         max-width: 100%;

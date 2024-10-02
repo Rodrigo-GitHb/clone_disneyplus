@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', function(){
     const buttons = document.querySelectorAll(`[data-tab-button]`);
     const questions = document.querySelectorAll('[data-faq-question]');
+
+    const heroSection = document.querySelector('.hero');
+    const alturaHero = heroSection.clientHeight;
+
+    window.addEventListener('scroll', function(){
+        const posicaoAtual = window.scrollY;
+
+        if(posicaoAtual < alturaHero) {
+            addHidden();
+        } else {
+            removeHidden();
+        }
+    })
+
+    function addHidden(){
+        const header = document.querySelector('header')
+        header.classList.add('header--is-hidden');
+    }
+
+    function removeHidden(){
+        const header = document.querySelector('header');
+        header.classList.remove('header--is-hidden');
+    }
     
     
     for (let i = 0; i < buttons.length; i++){
@@ -42,3 +65,4 @@ function escondeAbas(){
         tabsContainer[i].classList.remove('shows__list--is-active');
     }
 }
+
