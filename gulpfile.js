@@ -10,8 +10,7 @@ function styles(){
 }
 
 function images(){
-    return gulp.src('./src/imgs/**')
-    .pipe(imgmin())
+    return gulp.src('./src/imgs/**/*')
     .pipe(gulp.dest('./dist/imgs'));
 }
 
